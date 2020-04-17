@@ -1,0 +1,6 @@
+{
+  "hello": "xin chao",
+  "goodbye": "tam biet",
+  "watches": "dong ho",
+  "phone": "dien thoai"
+}
