@@ -15,22 +15,33 @@ def add_word(dictionary)
   word_original = gets.chomp
   print "nhap nghia: "
   translated = gets.chomp
-  dictionary[word_original.to_sym] = translated
+  dictionary[word_original.to_s] = translated
 end
 
-file = File.open("input.txt")
-data = file.read
-dictionary_global = JSON.parse(data)
+def read_file(file_name)
+  file = File.open(file_name)
+  data = file.read
+  JSON.parse(data)
+end
 
+def write_file(file_name, data)
+  file = File.open(file_name, "w")
+  file.puts data
+  file.close
+end
+
+dictionary_global = read_file("input.txt")
+
+# Main
 loop do
-  print "1 de nhap tu, 2 de tra, 0 de thoat: "
+  print "1 de nhap tu, 2 de tra, 0 de luu: "
   user_input = gets.chomp.to_i
   if user_input == 1
     add_word(dictionary_global)
   elsif user_input == 2
     search_word(dictionary_global)
   elsif user_input == 0
-    break
+    write_file("output.txt", dictionary_global.to_json)
   else 
     puts "yeu cau khong hop le"
   end
