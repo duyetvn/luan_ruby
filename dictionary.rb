@@ -7,6 +7,7 @@ class Dictionary
 		file = File.open(file_path)
 		data = file.read
 		@data =JSON.parse(data)
+		@file_path = file_path
 	end
 
 	def print_all
@@ -19,9 +20,13 @@ class Dictionary
 		end
 	end
 
-	# Add a word
-	# Chi can add dc vao bien @data
-end
+	def add_word(origin, translated)
+		@data[origin] = translated
+	end
 
-dic_en_vi = Dictionary.new('en_vi.txt')
-puts dic_en_vi.search_word('hello') # => 'xin chao'
+	def store_to_db
+		file = File.open(@file_path, 'w')
+		file.puts @data.to_json
+		file.close
+	end
+end

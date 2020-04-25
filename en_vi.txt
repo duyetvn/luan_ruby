@@ -1,1 +1,1 @@
-{"hello":"xin chao","goodbye":"tam biet","watches":"dong ho","phone":"dien thoai","box":"hop","laptop":"maytinh"}
+{"hello":"xin chao","goodbye":"tambiet","watches":"dong ho","phone":"dien thoai","box":"hop","laptop":"maytinh"}

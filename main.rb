@@ -15,6 +15,7 @@ def add_word(dictionary)
   word_original = gets.chomp
   print "nhap nghia: "
   translated = gets.chomp
+  
   dictionary[word_original.to_s] = translated
 end
 
